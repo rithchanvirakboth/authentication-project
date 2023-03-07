@@ -5,6 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 const userRoute = require('./routes/userRouter');
+const uploadRoute = require('./routes/upload');
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use(fileUpload({
 
 // Routes
 app.use('/user', userRoute);
+app.use('/api', uploadRoute);
 
 app.use('/', (req, res) => {
     res.json({msg: 'Welcome to server 2023'})

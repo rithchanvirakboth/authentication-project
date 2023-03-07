@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  max-width: 1920px;
+  width: 100%;
+  min-height: 100vh;
+  box-shadow: 0 0 20px #eee;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0px 35px 0px 0px;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@import url('./components/layout/layout.css');
+@import url('./components/auth/auth.css');  
+@import url('./components/utils/notification/Notification.css');
+@import url('./components/utils/notFound/NotFound.css');
+
+/* Color*/
+:root {
+  --primary-dark: #012E4A;
+  --primary: #036280;
+  --secondary: #378BA4;
+  --primary-light: #81BECE;
+  --white: #E8EDE7;
+  --text-danger: #DF2E38; 
+  --text-success: #5D9C59;
+  --text-warning: #F2B705;
+  --text-info: #1a79a8;
+}

@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Body from './components/layout/Body';
+import Header from './components/layout/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import ACTIONS from './redux/actions';
+import { dispatchLogin, getUser, dispatchGetUser } from './redux/actions/authAction';
 
 function App() {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const auth = useSelector(state => state.auth);
+    // @ts-ignore
+  const token = useSelector(state => state.token);
+
+  useEffect(() => {
+    const firstLogin = localStorage.getItem('firstLogin');
+    if (firstLogin) {
+      const refreshToken = async () => {
+
+        const res = await axios.post('/user/refresh_token', null);
+        dispatch({ type: ACTIONS.GET_TOKEN, payload: res.data.access_token });
+
+      }
+      refreshToken();
+    }
+  }, [auth.isLogged, dispatch])
+
+  useEffect(() => {
+    if(token){
+      const getUsers =  () => {
+        dispatch(dispatchLogin());
+        return getUser(token).then(res => {
+          dispatch(dispatchGetUser(res));
+        })
+      }
+      getUsers();
+    }
+  }, [token, dispatch])
+      
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Body />
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,21 @@
+.error_msg {
+  background-color: var(--text-danger);
+  color: var(--white);
+  padding: 10px 0;
+  width: 525px;
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+  letter-spacing: 1.3px;
+  border-radius: 5px;
+}
+
+.success_msg {
+  background-color: var(--text-success);
+  color: var(--white);
+  padding: 10px 0;
+  width: 525px;
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+  letter-spacing: 1.3px;
+  border-radius: 5px;
+}
