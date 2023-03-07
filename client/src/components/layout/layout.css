@@ -35,34 +35,27 @@ header ul li img {
   margin-right: 10px;
 }
 /* Dropdown menu */
-
-.drop-nav {
+/* --------- Dropdown ---------- */
+.drop-nav{
   position: relative;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
-
-.drop-nav a {
+.drop-nav a{
   text-transform: capitalize;
   overflow: hidden;
-  margin-right: 10px;
 }
-.drop-nav i {
-  margin-left: 10px;
-}
-
-.drop-nav .dropdown {
+.drop-nav .dropdown{
   position: absolute;
-  background-color: var(--primary-dark);
+  background: var(--primary-dark);
   width: 100%;
-  width: calc(100% + 15px);
-  top: 55px;
+  width: calc(100% + 30px);
+  top: 50px;
   display: none;
 }
-
 .drop-nav .dropdown li{
   display: block;
-} 
-
-.drop-nav:hover .dropdown {
+}
+.drop-nav:hover .dropdown{
   display: block;
+  transition: 1s ease;
 }

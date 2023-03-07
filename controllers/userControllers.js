@@ -210,12 +210,12 @@ const userControllers = {
   
   updateUsers: async (req, res) => {
     try {
-      const { lastName, firstName, userName, email }  = req.body;
+      const { lastName, firstName, userName, avatar }  = req.body;
       await User.findOneAndUpdate({_id: req.user.id}, {
         lastName,
         firstName,
         userName,
-        email
+        avatar,
       });
 
       res.json({msg: 'Updated sucessfully!'});

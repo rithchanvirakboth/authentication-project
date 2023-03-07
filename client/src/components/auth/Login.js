@@ -39,7 +39,7 @@ function Login() {
       localStorage.setItem('firstLogin', true)
 
       dispatch(dispatchLogin());
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       err.response.data.msg && setUser({ ...user, errorMessage: err.response.data.msg, successMessage: '' })
     }

@@ -21,16 +21,17 @@ function Header() {
 
 
   const userLink = () => {
-    return <li className="drop-nav">
-      <Link to="/" className="avatar">
-        <img src={user.avatar} alt='' />{user.userName}
-        <i className="fa fa-angle-down"></i>
-      </Link>
-      <ul className="dropdown">
-        <li><Link to="/profile">Profile</Link></li>
-        <li><Link to="/logout" onClick={handleLogout}>Logout</Link></li>
-      </ul>
+    return (
+      <li className="drop-nav">
+        <Link to="#" className="avatar">
+        <img src={user.avatar} alt=""/> {user.userName} <i className="fa fa-angle-down"></i>
+        </Link>
+        <ul className="dropdown">
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
+        </ul>
       </li>
+    )
   }
   const transform = {
     transform: isLogged ? "translateY(-10px)" : "0"

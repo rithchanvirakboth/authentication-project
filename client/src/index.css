@@ -40,6 +40,7 @@ button {
 @import url('./components/auth/auth.css');  
 @import url('./components/utils/notification/Notification.css');
 @import url('./components/utils/notFound/NotFound.css');
+@import url('./components/page/page.css');
 
 /* Color*/
 :root {
