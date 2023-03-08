@@ -41,6 +41,7 @@ button {
 @import url('./components/utils/notification/Notification.css');
 @import url('./components/utils/notFound/NotFound.css');
 @import url('./components/page/page.css');
+@import url('./components/page/admin/admin.css');
 
 /* Color*/
 :root {

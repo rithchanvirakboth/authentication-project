@@ -4,6 +4,8 @@ import axios from 'axios';
 import { showErrorMessage, showSuccessMessage } from '../utils/notification/Notification';
 import { dispatchLogin } from '../../redux/actions/authAction';
 import { useDispatch } from 'react-redux';
+import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 const initialState = {
   email: '',
@@ -45,6 +47,14 @@ function Login() {
     }
   }
 
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
+    
   return (
     <div className='login'>
       <h1>Login</h1>
@@ -85,9 +95,26 @@ function Login() {
           </button>
           <Link to="/forget_password">Forget your password?</Link>
         </div>
-
         <p>Don't have an account?<Link to="/register">Sign up</Link>now</p>
       </form>
+
+      <div className="social-media-login">
+        <p>login with</p>
+      </div>
+      <div className="social-media">
+        <GoogleLogin
+          clientId="510349148423-v9mpgt4ne7vsj9i670dml5d1rfvh0blr.apps.googleusercontent.com"
+          buttonText="Login with google"
+          onSuccess={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />,
+        <FacebookLogin
+          appId="1088597931155576"
+          autoLoad={false}
+          fields="name,email,picture"
+          callback={responseFacebook} 
+        />
+      </div>
     </div>
   )
 }

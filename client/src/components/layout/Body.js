@@ -8,6 +8,7 @@ import NotFound from '../utils/notFound/NotFound';
 import ForgetPassword from '../auth/ForgetPassword';
 import ResetPassword from '../auth/ResetPassword';
 import Profile from '../page/profile';
+import EditUser from '../page/admin/EditUser';
 
 function Body() {
   // @ts-ignore
@@ -23,6 +24,7 @@ function Body() {
         <Route path="/forget_password" element={isLogged ? <NotFound /> : <ForgetPassword />} />
         <Route path="/user/reset/:token" element={isLogged ? <NotFound /> : <ResetPassword />} />
         <Route path="/profile" element={isLogged ? <Profile /> : <NotFound />} />
+        <Route path="/edit/:id" element={isLogged ? <EditUser /> : <NotFound />} />
 
         <Route path="/user/activate/:activation_token" element={<ActivateEmail />}/>
 
